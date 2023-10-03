@@ -77,9 +77,9 @@ const Price = styled.div`
   margin-top: 2.4rem;
 
   background-color: ${(props) =>
-    props['data_is_paid']===true ? "var(--color-green-100)" : "var(--color-yellow-100)"};
+    props['paid']===true ? "var(--color-green-100)" : "var(--color-yellow-100)"};
   color: ${(props) =>
-    props['data_is_paid']===true ? "var(--color-green-700)" : "var(--color-yellow-700)"};
+    props['paid']===true ? "var(--color-green-700)" : "var(--color-yellow-700)"};
 
   & p:last-child {
     text-transform: uppercase;
@@ -165,7 +165,7 @@ function BookingDataBox({ booking }) {
           {hasBreakfast ? "Yes" : "No"}
         </DataItem>
 
-        <Price data_is_paid={isPaid}>
+        <Price paid={isPaid}>
           <DataItem icon={<HiOutlineCurrencyDollar />} label={`Total price`}>
             {formatCurrency(totalPrice)}
 

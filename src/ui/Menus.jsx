@@ -99,7 +99,11 @@ const Toogle = ({ id }) => {
   }
 
   return (
-    <StyledToggle onClick={(e)=>handleToogle(e)}>
+    <StyledToggle onClick={(e)=>{
+      e.stopPropagation()
+      handleToogle(e)
+    }
+  }>
       <HiEllipsisVertical />
     </StyledToggle>
   );
@@ -107,7 +111,7 @@ const Toogle = ({ id }) => {
 
 const List = ({ id, children }) => {  
   const { openId, position, close } = useContext(MenusContext);
-  const ref = useOutsideClick(close);
+  const ref = useOutsideClick(close, false);
 
   if (openId !== id) return null;
 
